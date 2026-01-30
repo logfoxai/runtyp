@@ -5,10 +5,13 @@ import type {Infer} from '..';
 
 // Type-level test: Infer should produce Record<string, T>
 const stringRecord = record(string());
+
 type StringRecord = Infer<typeof stringRecord>;
-const _typeTest: StringRecord = {foo: 'bar', baz: 'qux'};
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const typeTest: StringRecord = {foo: 'bar', baz: 'qux'};
 // @ts-expect-error - number is not assignable to string
-const _typeTestFail: StringRecord = {foo: 123};
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const typeTestFail: StringRecord = {foo: 123};
 
 test('record(): valid inputs', (assert) => {
 

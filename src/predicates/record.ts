@@ -33,6 +33,7 @@ export function record<T>(valuePredicate: Pred<T>): Pred<Record<string, T>> {
                 for (const [errorKey, errorMsg] of Object.entries(result.errors)) {
 
                     const fullKey = errorKey === 'root' ? key : `${key}.${errorKey}`;
+
                     errors[fullKey] = errorMsg;
 
                 }
