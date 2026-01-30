@@ -1,7 +1,7 @@
 {
   "name": "runtyp",
   "version": "1.0.0",
-  "description": "Lightning-fast, zero-dependency runtime validation for TS/JS. 25x faster than zod with a cleaner API.",
+  "description": "Lightning-fast, zero-dependency runtime validation for TS/JS. 25x faster and 15x smaller than zod.",
   "keywords": [
     "joi",
     "zod",
