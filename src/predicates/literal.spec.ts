@@ -8,10 +8,10 @@ const textValidator = literal('text');
 
 type TextType = Infer<typeof textValidator>;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-underscore-dangle
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const typeTest: TextType = 'text';
 // @ts-expect-error - 'other' is not assignable to 'text'
-// eslint-disable-next-line @typescript-eslint/no-unused-vars, no-underscore-dangle
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const typeTestFail: TextType = 'other';
 
 test('literal(): valid inputs', (assert) => {

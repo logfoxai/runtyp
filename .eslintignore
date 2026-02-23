@@ -1,7 +1,0 @@
-.eslintrc.js
-dist
-bin
-node_modules
-release.config.js
-conf/
-benchmark.js
