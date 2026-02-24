@@ -1,4 +1,4 @@
-name: release
+name: Release
 on:
   push:
     branches:
@@ -6,14 +6,13 @@ on:
       - next
   workflow_dispatch:
 permissions:
-      contents: write
-      packages: write
-      id-token: write  # Required for npm provenance
+  id-token: write   # Required for npm trusted publishing (OIDC)
+  contents: read
 jobs:
   release:
-    name: release
+    name: Release
     runs-on: ubuntu-latest
-    concurrency: 
+    concurrency:
       group: deploy-${{github.ref}}
       cancel-in-progress: true
     steps:
@@ -23,18 +22,11 @@ jobs:
           fetch-tags: true
       - uses: actions/setup-node@v4
         with:
-          node-version: latest
-          registry-url: "https://registry.npmjs.org"
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
           cache: 'npm'
-      - uses: actions/cache@v3
-        id: cache-node-modules
-        with:
-          path: node_modules
-          key: ${{runner.os}}-node-${{hashFiles('package-lock.json')}}
       - run: npm ci
-      - run: npm run lint
-      - run: npm test
-      - run: npx autorel@^2
+      - run: npm run validate
+      - run: npx autorel@^2 --publish
         env:
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-          NPM_CONFIG_PROVENANCE: true
