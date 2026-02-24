@@ -2,7 +2,7 @@ import {Pred, ValidationResult} from '..';
 
 export function regex(
     exp: RegExp,
-    errorMessage: string
+    errorMessage: string,
 ): Pred<string> {
 
     return (value: unknown): ValidationResult<string> => {

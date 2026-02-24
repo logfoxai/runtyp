@@ -4,9 +4,10 @@ import {string, number, object} from '.';
 import type {Infer} from '..';
 
 // Type-level test: Infer should produce Record<string, T>
-const stringRecord = record(string());
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+const stringRecordSchema = record(string());
 
-type StringRecord = Infer<typeof stringRecord>;
+type StringRecord = Infer<typeof stringRecordSchema>;
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const typeTest: StringRecord = {foo: 'bar', baz: 'qux'};
 // @ts-expect-error - number is not assignable to string
@@ -21,19 +22,19 @@ test('record(): valid inputs', (assert) => {
     assert.equal(
         stringMap({a: 'hello', b: 'world'}),
         {isValid: true, value: {a: 'hello', b: 'world'}},
-        'should return true for valid string record'
+        'should return true for valid string record',
     );
 
     assert.equal(
         numberMap({x: 1, y: 2, z: 3}),
         {isValid: true, value: {x: 1, y: 2, z: 3}},
-        'should return true for valid number record'
+        'should return true for valid number record',
     );
 
     assert.equal(
         stringMap({}),
         {isValid: true, value: {}},
-        'should return true for empty object'
+        'should return true for empty object',
     );
 
 });
@@ -45,31 +46,31 @@ test('record(): invalid input types', (assert) => {
     assert.equal(
         stringMap(null),
         {isValid: false, errors: {root: 'must be an object'}},
-        'should return false for null'
+        'should return false for null',
     );
 
     assert.equal(
         stringMap(undefined),
         {isValid: false, errors: {root: 'must be an object'}},
-        'should return false for undefined'
+        'should return false for undefined',
     );
 
     assert.equal(
         stringMap([]),
         {isValid: false, errors: {root: 'must be an object'}},
-        'should return false for arrays'
+        'should return false for arrays',
     );
 
     assert.equal(
         stringMap('string'),
         {isValid: false, errors: {root: 'must be an object'}},
-        'should return false for strings'
+        'should return false for strings',
     );
 
     assert.equal(
         stringMap(42),
         {isValid: false, errors: {root: 'must be an object'}},
-        'should return false for numbers'
+        'should return false for numbers',
     );
 
 });
@@ -82,19 +83,19 @@ test('record(): validation errors', (assert) => {
     assert.equal(
         stringMap({a: 'valid', b: 123}),
         {isValid: false, errors: {b: 'must be a string'}},
-        'should return error for invalid value'
+        'should return error for invalid value',
     );
 
     assert.equal(
         stringMap({a: 123, b: 456}),
         {isValid: false, errors: {a: 'must be a string', b: 'must be a string'}},
-        'should return multiple errors for multiple invalid values'
+        'should return multiple errors for multiple invalid values',
     );
 
     assert.equal(
         numberMap({x: 'not a number'}),
         {isValid: false, errors: {x: 'must be a number'}},
-        'should return error for non-number value'
+        'should return error for non-number value',
     );
 
 });
@@ -112,7 +113,7 @@ test('record(): nested object validation errors', (assert) => {
             user2: {name: 'Bob', age: 25},
         }),
         {isValid: true, value: {user1: {name: 'Alice', age: 30}, user2: {name: 'Bob', age: 25}}},
-        'should return true for valid nested objects'
+        'should return true for valid nested objects',
     );
 
     assert.equal(
@@ -121,7 +122,7 @@ test('record(): nested object validation errors', (assert) => {
             user2: {name: 123, age: 25},
         }),
         {isValid: false, errors: {'user2.name': 'must be a string'}},
-        'should return nested error path for invalid nested value'
+        'should return nested error path for invalid nested value',
     );
 
     assert.equal(
@@ -129,7 +130,7 @@ test('record(): nested object validation errors', (assert) => {
             user1: {name: 123, age: 'invalid'},
         }),
         {isValid: false, errors: {'user1.name': 'must be a string', 'user1.age': 'must be a number'}},
-        'should return multiple nested errors'
+        'should return multiple nested errors',
     );
 
 });
@@ -142,14 +143,14 @@ test('record(): edge cases', (assert) => {
     assert.equal(
         stringMap({'key.with.dots': 'value', 'key-with-dashes': 'value2'}),
         {isValid: true, value: {'key.with.dots': 'value', 'key-with-dashes': 'value2'}},
-        'should handle keys with special characters'
+        'should handle keys with special characters',
     );
 
     // Numeric keys (from object)
     assert.equal(
         stringMap({0: 'zero', 1: 'one'}),
         {isValid: true, value: {0: 'zero', 1: 'one'}},
-        'should handle numeric keys'
+        'should handle numeric keys',
     );
 
 });

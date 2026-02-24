@@ -11,7 +11,7 @@ type ExtractResultType<P> = P extends Pred<infer T> ? T : never;
  */
 export function union<T extends readonly Pred<any>[]>(
     predicates: [...T],
-    errorMessage: string
+    errorMessage: string,
 ): Pred<ExtractResultType<T[number]>> {
 
     return (value: unknown): ValidationResult<ExtractResultType<T[number]>> => {

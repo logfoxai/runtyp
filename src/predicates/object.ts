@@ -14,7 +14,7 @@ export function object(
 ): Pred<Record<string, any>>;
 export function object<T extends Record<string, Pred<any>>>(
     schemaOrOptions?: T | ObjectOptions,
-    options?: ObjectOptions
+    options?: ObjectOptions,
 ): Pred<InferShape<T>> | Pred<Record<string, any>> {
 
     // Check if first argument is options (has allowUnknownKeys property) or is undefined

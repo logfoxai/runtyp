@@ -37,11 +37,8 @@ test('optional(): type inference', (assert) => {
 
     type T = Infer<typeof validator>;
 
-    function doStuff(input: T): void {
-
-        input; // input is of type {name: string, age?: string}
-
-    }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    function doStuff(_input: T): void { /* type test */ }
 
     doStuff({name: 'John', age: '30'}); // valid
     doStuff({name: 'John'}); // valid

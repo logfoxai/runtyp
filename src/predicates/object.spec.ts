@@ -70,9 +70,9 @@ test('object(): validation errors', (assert) => {
 test('object(): invalid schema', (assert) => {
 
     assert.throws(
-        // @ts-ignore
+        // @ts-expect-error testing invalid schema
         () => object(Math.PI),
-        new Error('invalid schema, must be object')
+        new Error('invalid schema, must be object'),
     );
 
 });

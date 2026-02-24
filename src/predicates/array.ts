@@ -7,7 +7,7 @@ type Opts = {
 
 export function array<T>(
     predicate: Pred<T>,
-    options?: Opts
+    options?: Opts,
 ): Pred<T[]> {
 
     return (value: unknown): ValidationResult<T[]> => {

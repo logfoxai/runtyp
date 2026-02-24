@@ -2,7 +2,7 @@ import {Pred, ValidationResult} from '..';
 
 export function custom<T>(
     predicate: (value: T) => boolean,
-    errorMessage: string
+    errorMessage: string,
 ): Pred<T> {
 
     return (value: unknown): ValidationResult<T> => {
