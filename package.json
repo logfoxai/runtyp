@@ -1,8 +1,8 @@
 {
   "name": "runtyp",
   "version": "1.0.0",
-  "description": "Lightning-fast, zero-dependency runtime validation for TS/JS. 25x faster than zod with a cleaner API.",
-  "keywords": [
+    "description": "Lightning-fast, zero-dependency runtime validation for TS/JS. 25x faster and 15x smaller than zod (4kb vs 60kb gzipped).",
+    "keywords": [
     "joi",
     "zod",
     "myzod",
@@ -15,9 +15,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/logspacehq/runtyp.git"
+    "url": "git+https://github.com/logfoxai/runtyp.git"
   },
-  "homepage": "https://github.com/logspacehq/runtyp",
+  "homepage": "https://github.com/logfoxai/runtyp",
   "license": "MIT",
   "author": "Marc H. Weiner <mhweiner234@gmail.com>",
   "publishConfig": {

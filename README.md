@@ -6,7 +6,7 @@
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![AutoRel](https://img.shields.io/badge/%F0%9F%9A%80%20AutoRel-2D4DDE)](https://github.com/mhweiner/autorel)
 
-Lightning-fast, zero-dependency runtime type validation for TS/JS. 25x faster than zod with a cleaner API.
+Lightning-fast, zero-dependency runtime type validation for TS/JS. 25x faster and 15x smaller than zod (4kb vs 60kb gzipped).
 
 **🚀 Fast & reliable performance**  
 
