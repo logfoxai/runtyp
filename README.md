@@ -1,4 +1,10 @@
-# `runtyp`
+<div align="center">
+  <picture>
+    <source srcset="assets/runtyp-dark.svg" media="(prefers-color-scheme: dark)" />
+    <source srcset="assets/runtyp-light.svg" media="(prefers-color-scheme: light)" />
+    <img src="assets/runtyp-light.svg" height="56" alt="runtyp" />
+  </picture>
+</div>
 
 ![Code Coverage](https://img.shields.io/badge/Code%20Coverage%20-%20100%25%20-%20%2331c352)
 [![SemVer](https://img.shields.io/badge/SemVer-2.0.0-blue)]()
